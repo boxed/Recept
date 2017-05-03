@@ -20,7 +20,12 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^(?P<pk>\d+)/edit/$', views.edit),
+
+    url(r'^recipes/$', views.recipe_list),
+    url(r'^recipes/create/$', views.create_recipe),
+    url(r'^recipes/(?P<pk>\d+)/edit/$', views.edit_recipe),
+
+    url(r'^history/$', views.history),
 
     url(r'^admin/', admin.site.urls),
 ]

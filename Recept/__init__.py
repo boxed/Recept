@@ -1,11 +1,11 @@
 def R(primary, secondary=None, name=None):
-    from Recept.models import Receipt
+    from Recept.models import Recipe
 
     if secondary is None:
         secondary = primary
     if name is None:
         name = secondary
-    Receipt.objects.get_or_create(name=name, primary=primary, secondary=secondary)
+    Recipe.objects.get_or_create(name=name, primary=primary, secondary=secondary)
 
 
 def create_objects():

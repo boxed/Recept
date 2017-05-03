@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Receipt(models.Model):
+class Recipe(models.Model):
     name = models.CharField(max_length=255)
     primary = models.CharField(max_length=255)
     secondary = models.CharField(max_length=255, blank=True)
@@ -15,7 +15,16 @@ class Receipt(models.Model):
         return str(self)
 
     def get_absolute_url(self):
-        return '/%s/' % self.pk
+        return '/recipes/%s/' % self.pk
 
     class Meta:
         ordering = ['name']
+
+
+class RecipeForDay(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    date = models.DateField()
+
+    class Meta:
+        ordering = ['date']
+        unique_together = ('recipe', 'date')
