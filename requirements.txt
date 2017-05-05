@@ -1,2 +1,5 @@
 django<1.10
 tri.table
+gunicorn
+dj-database-url
+psycopg2==2.6.2

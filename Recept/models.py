@@ -21,10 +21,21 @@ class Recipe(models.Model):
         ordering = ['name']
 
 
-class RecipeForDay(models.Model):
-    recipe = models.ForeignKey(Recipe)
-    date = models.DateField()
+class RecipeForWeek(models.Model):
+    recipes = models.ManyToManyField(Recipe)
+
+    year = models.IntegerField()
+    week = models.IntegerField()
+
+    def __str__(self):
+        return '%sw%s' % (self.year, self.week)
+
+    def __repr__(self):
+        return str(self)
+
+    def get_absolute_url(self):
+        return '/history/%s/' % self.pk
 
     class Meta:
-        ordering = ['date']
-        unique_together = ('recipe', 'date')
+        ordering = ['year', 'week']
+        unique_together = ('year', 'week')

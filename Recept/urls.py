@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^recipes/(?P<pk>\d+)/edit/$', views.edit_recipe),
 
     url(r'^history/$', views.history),
+    url(r'^history/(?P<pk>\d+)/edit/$', views.edit_plan),
+    url(r'^history/plan/$', views.plan),
 
     url(r'^admin/', admin.site.urls),
 ]

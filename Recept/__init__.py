@@ -1,3 +1,17 @@
+from datetime import date
+
+
+def chunks(l, n):
+    """Yield successive n-sized chunks from l."""
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+
+def weeks_for_year(year):
+    last_week = date(year, 12, 28)
+    return last_week.isocalendar()[1]
+
+
 def R(primary, secondary=None, name=None):
     from Recept.models import Recipe
 

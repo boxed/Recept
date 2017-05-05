@@ -3,7 +3,18 @@
     <title></title>
 </head>
 <body>
-    <a href="recipies/">Recipes</a>
-    <a href="history/">History</a>
+
+    <h1>Week {{ week }}</h1>
+
+    <ul>
+        {% for recipe in recipes_for_week %}
+            <li>
+                {{ recipe }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div><a href="recipes/">Recipes</a></div>
+    <div><a href="history/">History</a></div>
 </body>
 </html>
